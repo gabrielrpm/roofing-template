@@ -33,3 +33,12 @@ Todo conteúdo factual vem do _source/. NUNCA mantenha texto ou seções do temp
 
 ## Estrutura premium (manter)
 header sticky → hero → trust bar → services → why us → gallery → testimonials → process → financing/insurance → service area → quote form → footer. Barra fixa mobile com Call + Quote. Remova seções sem conteúdo real (exceto reviews).
+
+## Responsividade e overflow (NUNCA pode ter scroll horizontal)
+- Nenhum elemento pode exceder a largura da viewport. Sempre teste mentalmente em 375px (mobile).
+- NUNCA use w-screen nem width: 100vw (inclui a largura da scrollbar e estoura). Use w-full / max-w-full.
+- overflow-x-hidden no container raiz (div principal do page.tsx).
+- Imagens, grids e containers: sempre w-full + max-w-full. Nada de largura fixa maior que a tela.
+- FLEX/GRID: todo filho de flex ou grid que contém texto ou inputs precisa de min-w-0 (senão não encolhe e estoura pra fora).
+- FORMULÁRIOS: todos os input, textarea e select com w-full, max-w-full, box-border e min-w-0. Sem atributo cols no textarea e sem size nos inputs (forçam largura fixa). Grid de campos: grid-cols-1 sm:grid-cols-2 com min-w-0 em cada coluna.
+- Textos longos: break-words. Nunca usar margens negativas que empurrem o conteúdo além da tela.
